@@ -1,4 +1,4 @@
-package asymmetrik.challenge.implimentation;
+package asymmetrik.challenge.implementation;
 
 /**
  * A class to represent an autocomplete candidate word.
