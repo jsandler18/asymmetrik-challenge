@@ -12,7 +12,7 @@ public class Candidate implements Comparable<Candidate>{
      * @param word the word being suggested
      * @param confidence the confidence this is the desired word
      */
-    protected Candidate (String word, int confidence) {
+    public Candidate (String word, int confidence) {
         this.word = word;
         this.confidence = confidence;
     }

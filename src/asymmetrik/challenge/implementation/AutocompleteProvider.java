@@ -2,6 +2,8 @@ package asymmetrik.challenge.implementation;
 
 import java.util.ArrayList;
 import java.util.List;
+import asymmetrik.challenge.implementation.dataStructures.SuggestTrie;
+
 
 /**
  * A class to train, store, and query an autocomplete model for english word fragments
