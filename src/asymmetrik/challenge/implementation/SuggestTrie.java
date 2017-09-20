@@ -1,4 +1,4 @@
-package asymmetrik.challenge.implementation.dataStructures;
+package asymmetrik.challenge.implementation;
 
 import asymmetrik.challenge.implementation.Candidate;
 
@@ -10,11 +10,11 @@ import java.util.Map.Entry;
 /**
  * A data structure to store a suggest trie.
  */
-public class SuggestTrie {
+class SuggestTrie {
 
     private TrieNode root;
 
-    public SuggestTrie() {
+    SuggestTrie() {
         this.root = new TrieNode('\0'); // Create root node with null char, so we can't accidentally use it
     }
 
@@ -68,10 +68,10 @@ public class SuggestTrie {
 
         /**
          * Checks if this node terminates a word
-         * @return
+         * @return true if this node terminates a word, false otherwise
          */
         private boolean isWord() {
-            return this.count >= 0;
+            return this.count > 0;
         }
 
         /**
@@ -123,7 +123,7 @@ public class SuggestTrie {
      * @param fragment the string to complete
      * @param candidateList a list to be filled with matched candidates
      */
-    public void lookup(String fragment, List<Candidate> candidateList) {
+    void lookup(String fragment, List<Candidate> candidateList) {
         char [] start = fragment.toLowerCase().toCharArray();
         //get root of subtree we must search
         TrieNode searchRoot = this.root;
@@ -136,14 +136,14 @@ public class SuggestTrie {
             }
         }
         // Do a recursive lookup from the search root
-        recursiveLookup(searchRoot, fragment, candidateList);
+        recursiveLookup(searchRoot, fragment.substring(0, fragment.length()-1), candidateList);
     }
 
     /**
      * Stores the given word into the structure
      * @param word the word to store
      */
-    public void store(String word) {
+     void store(String word) {
         char [] chars = word.toLowerCase().toCharArray();
         TrieNode curr = this.root;
         for (char character : chars) {

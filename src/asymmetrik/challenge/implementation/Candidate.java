@@ -12,7 +12,7 @@ public class Candidate implements Comparable<Candidate>{
      * @param word the word being suggested
      * @param confidence the confidence this is the desired word
      */
-    public Candidate (String word, int confidence) {
+    Candidate (String word, int confidence) {
         this.word = word;
         this.confidence = confidence;
     }
@@ -35,7 +35,11 @@ public class Candidate implements Comparable<Candidate>{
 
     @Override
     public int compareTo(Candidate o) {
-        //we want to sort by confidence only
-        return this.confidence - o.confidence;
+        //we want to sort by confidence in descending order
+        return o.confidence - this.confidence;
+    }
+
+    public String toString() {
+        return this.word +" (" + this.confidence + ")";
     }
 }

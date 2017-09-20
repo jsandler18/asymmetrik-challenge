@@ -3,7 +3,6 @@ package asymmetrik.challenge.implementation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
-import asymmetrik.challenge.implementation.dataStructures.SuggestTrie;
 
 
 /**
@@ -34,7 +33,7 @@ public class AutocompleteProvider {
      * Multiple calls will not delete old data, but add to it.
      * @param passage the text to train the model on.
      */
-    void train(String passage) {
+    public void train(String passage) {
         // Split the passage based on anything that isn't letters, apostrophe, or hyphen
         String [] words = passage.split("[^A-Za-z'-]");
         for (String word: words) {
